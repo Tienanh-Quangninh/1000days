@@ -1,0 +1,24 @@
+<div class="col-sm-6">
+                               
+    <fieldset><textarea name="tinnhan" form="loinhan" id="tinnhan" placeholder="Send some gì đó cho ăn" class="require textarea"></textarea></fieldset>
+   
+    <button class="bt3" type="submit" onclick="Send()">send to lover</button>
+   
+        </div>
+ 
+        <script>
+            function Send() {                                            
+                let   message = document.getElementById("tinnhan").value;
+                let data = {    
+                    'entry.1718215525': message,
+                }
+                let queryString = new URLSearchParams(data);
+                queryString = queryString.toString();
+                console.log(data);
+                let xhr = new XMLHttpRequest();
+                xhr.open("POST", 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSczNgk5SkmLUL8WWbgBRADGm-ydGRcP55RR2Z9YiEJm-FHmDQ/formResponse', true);
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xhr.send(queryString);
+            
+            }                                                                    
+            </script>
